@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Ejercicio Semanal Anagrama</title>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-secondary text-center my-4">Detectar si dos palabras son Anagramas</h3>
+
+        <form class="container col-4 border rounded p-4 shadow">
+            <div  class="form-group">
+                <label>Introduce una palabra:</label>
+                <input TYPE="text" id="palabra1" class="form-control my-1">
+            </div>
+            <div  class="form-group">
+            <label >Introduce otra palabra:</label>
+            <input TYPE="text" id="palabra2" class="form-control my-1">
+            </div>
+            <label class="form-group">
+                <input class="btn btn-secondary my-2" TYPE="button" VALUE="Comprobar si son anagramas" onclick="comprobar()">  
+            </label>
+        </form>
+        <div class="container col-6 p-4 my-2 text-center">
+            <h4 class="" id="resultado"></h4>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function comprobar() {
+            var palabra1 = document.getElementById("palabra1").value;
+            var palabra2 = document.getElementById("palabra2").value;
+
+            if (palabra1.length != palabra2.length) {
+                resultado.classList = "text-danger";
+                document.getElementById("resultado").innerHTML = "Las palabras no tienen la misma longitud";
+            } else {
+                var palabra1_ordenada = palabra1.split("").sort().join("");
+                var palabra2_ordenada = palabra2.split("").sort().join("");
+
+                if (palabra1_ordenada == palabra2_ordenada) {
+                    resultado.classList = "text-success";
+                    document.getElementById("resultado").innerHTML = "Las palabras son anagramas";
+                } else {
+                    resultado.classList = "text-danger";
+                    document.getElementById("resultado").innerHTML = "Las palabras no son anagramas";
+                }
+            }
+        }
+    </script> 
+</body>
+</html>
